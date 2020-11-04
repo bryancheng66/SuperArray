@@ -40,4 +40,43 @@ public class SuperArray {
 		}	
 		this.data = newArray;
 	}
+
+	public boolean isEmpty(){
+		return this.size == 0;
+	}
+
+	public void clear(){
+		this.data = new String[this.data.length];
+		this.size = 0;
+	}
+
+	public String toString(){
+		String result = "[";
+		
+		if (this.isEmpty()){
+			return "[]";
+		}
+
+		for (int i = 0; i < this.data.length; i++){
+			if (this.data[i] != null){
+				result += this.data[i];
+				result += ", ";
+			}
+		}
+
+		if (result.substring(result.length() - 2).equals(", ")){
+			result = result.substring(0, result.length() - 2) + "]";
+		}
+		return result;
+	}
+
+	public boolean contains(String s){
+		boolean result = false;
+		for (int i = 0; i < this.data.length; i++){
+			if (this.data[i] != null && this.data[i].equals(s)){
+				result = true;
+			}
+		}
+		return result;
+	}
 }

@@ -9,5 +9,10 @@ public class Test {
 		System.out.println(SA1.set(1, "yello"));
 		System.out.println(SA1.get(1));
 		SA1.resize();
+		System.out.println(SA1.toString());
+		System.out.println(SA1.contains("yello"));
+		SA1.clear();
+		System.out.println(SA1.isEmpty());
+		System.out.println(SA1.toString());
 	}
 }
