@@ -8,5 +8,6 @@ public class Test {
 		System.out.println(SA1.get(1));
 		System.out.println(SA1.set(1, "yello"));
 		System.out.println(SA1.get(1));
+		SA1.resize();
 	}
 }
