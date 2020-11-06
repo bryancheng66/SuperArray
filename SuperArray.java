@@ -2,6 +2,11 @@ public class SuperArray {
 	private String[] data;
 	private int size; //current size
 
+	public SuperArray(){
+		this.data = new String[10];
+		this.size = 0;
+	}
+
 	public SuperArray(int initialCapacity){
 		this.data = new String[initialCapacity];
 		this.size = 0;
@@ -62,10 +67,10 @@ public class SuperArray {
 		for (int i = 0; i < this.data.length; i++){
 			if (this.data[i] != null){
 				result += this.data[i];
+				result += ", ";
 			}
-			result += ", ";
 		}
-
+	
 		result = result.substring(0, result.length() - 2) + "]";
 
 		return result;
@@ -82,28 +87,31 @@ public class SuperArray {
 	}
 
 	public void add(int index, String element){
-			if (this.data[index] == null) {
-				this.data[index] = element;
-				this.size++;
-			} else {
-				if (size + 1 > this.data.length){
-					this.resize();
-				}
-				int oldCapacity = this.data.length;
-				//Create a new array. Copy all the elements up to element to it, set index to element, then shift all the elements after
-				String[] newArray = new String[this.data.length];
-
-				for (int i = 0; i < index; i++){
-					newArray[i] = this.data[i];
-				}
-				newArray[index] = element;
-				for (int i = index; i < oldCapacity - 1; i++){
-					newArray[i+1] = this.data[i];
-				}
-
-				//Finally, set this.data to newArray
-				this.data = newArray;
+		if (index < 0){
+		
+		} else 	if (this.data[index] == null) {
+			this.data[index] = element;
+			this.size++;
+		} else {
+			if (size + 1 > this.data.length){
+				this.resize();
 			}
+			int oldCapacity = this.data.length;
+
+			//Create a new array. Copy all the elements up to element to it, set index to element, then shift all the elements after
+			String[] newArray = new String[this.data.length];
+			for (int i = 0; i < index; i++){
+				newArray[i] = this.data[i];
+			}
+			newArray[index] = element;
+			for (int i = index; i < oldCapacity - 1; i++){
+				newArray[i+1] = this.data[i];
+			}
+
+			//Finally, set this.data to newArray
+			this.data = newArray;
+			this.size++;
+		}
 	}
 
 	public String remove(int index){
@@ -119,9 +127,9 @@ public class SuperArray {
 	public int indexOf(String s){
 		int result = -1;
 		for (int i = 0; result == -1 && i < this.data.length; i++){
-				if (s.equals(this.data[i])){
-					result = i;
-				}
+			if (this.data[i] != null && s.equals(this.data[i])){
+				result = i;
+			}
 		}
 		return result;
 	}
