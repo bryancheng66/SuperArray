@@ -39,5 +39,9 @@ public class Test {
 		//indexOf()
 		System.out.println(SA1.indexOf("eeeee"));
 		System.out.println(SA1.indexOf("5"));
+
+		//toArray()
+		System.out.println(SA1.toArray().toString());
+		System.out.println(SA1.toString());
 	}
 }

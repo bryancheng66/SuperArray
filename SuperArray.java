@@ -125,4 +125,12 @@ public class SuperArray {
 			}
 			return result;
 		}
+
+		public String[] toArray(){
+			String[] result = new String[this.data.length];
+			for (int i  = 0; i < this.data.length; i++){
+				result[i] = this.data[i];
+			}
+			return result;
+		}
 }
