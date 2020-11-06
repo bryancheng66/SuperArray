@@ -115,4 +115,14 @@ public class SuperArray {
 			this.data[this.data.length - 1] = null;
 			return result;
 		}
+
+		public int indexOf(String s){
+			int result = -1;
+			for (int i = 0; result == -1 && i < this.data.length; i++){
+					if (s.equals(this.data[i])){
+						result = i;
+					}
+			}
+			return result;
+		}
 }
