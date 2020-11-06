@@ -104,33 +104,33 @@ public class SuperArray {
 				//Finally, set this.data to newArray
 				this.data = newArray;
 			}
-		}
+	}
 
-		public String remove(int index){
-			String result = this.data[index];
+	public String remove(int index){
+		String result = this.data[index];
 
-			for (int i = index; i < this.data.length - 1; i++){
-				this.data[i] = this.data[i+1];
-			}
-			this.data[this.data.length - 1] = null;
-			return result;
+		for (int i = index; i < this.data.length - 1; i++){
+			this.data[i] = this.data[i+1];
 		}
+		this.data[this.data.length - 1] = null;
+		return result;
+	}
 
-		public int indexOf(String s){
-			int result = -1;
-			for (int i = 0; result == -1 && i < this.data.length; i++){
-					if (s.equals(this.data[i])){
-						result = i;
-					}
-			}
-			return result;
+	public int indexOf(String s){
+		int result = -1;
+		for (int i = 0; result == -1 && i < this.data.length; i++){
+				if (s.equals(this.data[i])){
+					result = i;
+				}
 		}
+		return result;
+	}
 
-		public String[] toArray(){
-			String[] result = new String[this.data.length];
-			for (int i  = 0; i < this.data.length; i++){
-				result[i] = this.data[i];
-			}
-			return result;
+	public String[] toArray(){
+		String[] result = new String[this.data.length];
+		for (int i  = 0; i < this.data.length; i++){
+			result[i] = this.data[i];
 		}
+		return result;
+	}
 }
