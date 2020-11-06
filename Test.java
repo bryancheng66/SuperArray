@@ -8,7 +8,7 @@ public class Test {
 		System.out.println(SA1.get(1));
 		System.out.println(SA1.set(1, "yello"));
 		System.out.println(SA1.get(1));
-		
+
 		//resize(), toString(), contains(), and isEmpty()
 		SA1.resize();
 		System.out.println(SA1.toString());
@@ -30,6 +30,10 @@ public class Test {
 		SA1.add("1");
 		SA1.add(5, "5");
 		SA1.add(0, "new1");
+		System.out.println(SA1.toString());
+
+		//remove()
+		SA1.remove(1);
 		System.out.println(SA1.toString());
 	}
 }

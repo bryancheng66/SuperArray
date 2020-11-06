@@ -22,31 +22,6 @@ public class SuperArray {
 		return true;
 	}
 
-	public void add(int index, String element){
-		if (this.data[index] == null) {
-			this.data[index] = element;
-			this.size++;
-		} else {
-			if (size + 1 > this.data.length){
-				this.resize();
-			}
-			int oldCapacity = this.data.length;
-			//Create a new array. Copy all the elements up to element to it, set index to element, then shift all the elements after
-			String[] newArray = new String[this.data.length];
-
-			for (int i = 0; i < index; i++){
-				newArray[i] = this.data[i];
-			}
-			newArray[index] = element;
-			for (int i = index; i < oldCapacity - 1; i++){
-				newArray[i+1] = this.data[i];
-			}
-
-			//Finally, set this.data to newArray
-			this.data = newArray;
-		}
-	}
-
 	public String get(int index){
 		return this.data[index];
 	}
@@ -105,4 +80,39 @@ public class SuperArray {
 		}
 		return result;
 	}
+
+	public void add(int index, String element){
+			if (this.data[index] == null) {
+				this.data[index] = element;
+				this.size++;
+			} else {
+				if (size + 1 > this.data.length){
+					this.resize();
+				}
+				int oldCapacity = this.data.length;
+				//Create a new array. Copy all the elements up to element to it, set index to element, then shift all the elements after
+				String[] newArray = new String[this.data.length];
+
+				for (int i = 0; i < index; i++){
+					newArray[i] = this.data[i];
+				}
+				newArray[index] = element;
+				for (int i = index; i < oldCapacity - 1; i++){
+					newArray[i+1] = this.data[i];
+				}
+
+				//Finally, set this.data to newArray
+				this.data = newArray;
+			}
+		}
+
+		public String remove(int index){
+			String result = this.data[index];
+
+			for (int i = index; i < this.data.length - 1; i++){
+				this.data[i] = this.data[i+1];
+			}
+			this.data[this.data.length - 1] = null;
+			return result;
+		}
 }
