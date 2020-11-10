@@ -100,11 +100,9 @@ public class SuperArray {
 			return "[]";
 		}
 
-		for (int i = 0; i < this.data.length; i++){
-			if (this.data[i] != null){
-				result += this.data[i];
-				result += ", ";
-			}
+		for (int i = 0; i < this.size; i++){
+			result += this.data[i];
+			result += ", ";
 		}
 	
 		result = result.substring(0, result.length() - 2) + "]";
@@ -127,17 +125,17 @@ public class SuperArray {
 	public String remove(int index){
 		String result = this.data[index];
 
-		for (int i = index; i < this.data.length - 1; i++){
+		for (int i = index; i < this.size - 1; i++){
 			this.data[i] = this.data[i+1];
 		}
-		this.data[this.data.length - 1] = null;
+		this.data[this.size - 1] = null;
 		return result;
 	}
 
 	//Returns the index of a string.
 	public int indexOf(String s){
 		int result = -1;
-		for (int i = 0; result == -1 && i < this.data.length; i++){
+		for (int i = 0; result == -1 && i < this.size; i++){
 			if (this.data[i] != null && this.data[i].equals(s)){
 				result = i;
 			}
@@ -147,8 +145,8 @@ public class SuperArray {
 
 	//Returns an array containing all the elements.
 	public String[] toArray(){
-		String[] result = new String[this.data.length];
-		for (int i  = 0; i < this.data.length; i++){
+		String[] result = new String[this.size];
+		for (int i  = 0; i < this.size; i++){
 			result[i] = this.data[i];
 		}
 		return result;
