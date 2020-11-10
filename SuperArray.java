@@ -153,4 +153,15 @@ public class SuperArray {
 		}
 		return result;
 	}
+
+	//Returns the last index of an element
+	public int lastIndexOf(String value){
+		int result = -1;
+		for (int i  = this.size; i >= 0 && result == -1; i--){
+			if (this.data[i].equals(value)){
+				result = i;
+			}
+		}
+		return result;
+	}	
 }
