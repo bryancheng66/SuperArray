@@ -2,20 +2,24 @@ public class SuperArray {
 	private String[] data;
 	private int size; //current size
 
+	//Constructor with no parameter
 	public SuperArray(){
 		this.data = new String[10];
 		this.size = 0;
 	}
 
+	//Constructor with capacity parameter
 	public SuperArray(int initialCapacity){
 		this.data = new String[initialCapacity];
 		this.size = 0;
 	}
 
+	//Return size
 	public int size(){
 		return this.size;
 	}
 
+	//Adds an element. If the size equals the capacity, then calls resize.
 	public boolean add(String element){
 		//if this.data is full, then resize it
 		if (size == this.data.length){
@@ -27,6 +31,7 @@ public class SuperArray {
 		return true;
 	}
 
+	//Add with a parameter for index. Shifts all the elements starting from the index to the right if there is already an element on the index.
 	public void add(int index, String element){
 		if (index < 0){
 		
@@ -52,11 +57,12 @@ public class SuperArray {
 		}
 	}
 
-
+	//Returns the element at the given index.
 	public String get(int index){
 		return this.data[index];
 	}
 
+	//Sets the the element at the given index to a new element. Returns the original element.
 	public String set(int index, String element){
 		//If the element at this index is null, increase the size
 		if (this.data[index] == null) this.size++;
@@ -66,6 +72,7 @@ public class SuperArray {
 		return replacee;
 	}
 
+	//Resize the array by a factor of 2.
 	public void resize(){
 		String[] newArray = new String[this.data.length * 2];
 		for (int i = 0; i < this.data.length; i++){
@@ -74,15 +81,18 @@ public class SuperArray {
 		this.data = newArray;
 	}
 
+	//Returns whether the array is empty or not.
 	public boolean isEmpty(){
 		return this.size == 0;
 	}
 
+	//Clears the array, but keeps the capacity.
 	public void clear(){
 		this.data = new String[this.data.length];
 		this.size = 0;
 	}
 
+	//Returns a string containing all the elements. 
 	public String toString(){
 		String result = "[";
 
@@ -102,6 +112,7 @@ public class SuperArray {
 		return result;
 	}
 
+	//Returns a boolean representing if the SuperArray contains the given string.
 	public boolean contains(String s){
 		boolean result = false;
 		for (int i = 0; i < this.data.length; i++){
@@ -112,6 +123,7 @@ public class SuperArray {
 		return result;
 	}
 
+	//Removes the element at the given index. Returns the given element.
 	public String remove(int index){
 		String result = this.data[index];
 
@@ -122,6 +134,7 @@ public class SuperArray {
 		return result;
 	}
 
+	//Returns the index of a string.
 	public int indexOf(String s){
 		int result = -1;
 		for (int i = 0; result == -1 && i < this.data.length; i++){
@@ -132,6 +145,7 @@ public class SuperArray {
 		return result;
 	}
 
+	//Returns an array containing all the elements.
 	public String[] toArray(){
 		String[] result = new String[this.data.length];
 		for (int i  = 0; i < this.data.length; i++){
