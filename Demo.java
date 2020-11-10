@@ -27,10 +27,12 @@ public class Demo{
 	public static SuperArray zip(SuperArray a, SuperArray b){
 		SuperArray result = new SuperArray(a.size() + b.size());
 		for (int i = 0; i < a.size(); i++){
-			result.add(a.get(i));
-		}
-		for (int i = 0; i < b.size(); i++){
-			result.add(b.get(i));
+			if (i < a.size() && a.get(i) != null){
+				result.add(a.get(i));
+			}
+			if (i < b.size() && b.get(i) != null){
+				result.add(b.get(i));
+			}
 		}
 		return result;
 	}
