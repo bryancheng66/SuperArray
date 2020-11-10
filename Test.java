@@ -43,5 +43,18 @@ public class Test {
 		//toArray()
 		System.out.println(SA1.toArray().toString());
 		System.out.println(SA1.toString());
+		
+		//equals()
+		SuperArray SA2 = new SuperArray(10);
+		SuperArray SA3 = new SuperArray(20);
+		SA2.add("2");
+		SA2.add("5");
+		SA2.add("7");
+		SA2.add("4");
+		SA3.add("2");
+		SA3.add("5");
+		SA3.add("7");
+		SA3.add("4");
+		System.out.println(SA2.equals(SA3));
 	}
 }

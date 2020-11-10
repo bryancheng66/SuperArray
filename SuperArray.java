@@ -162,4 +162,17 @@ public class SuperArray {
 		}
 		return result;
 	}	
+
+	//Returns true if this SuperArray has elements that are all equal to the corresponding elements of the given SuperArray.
+	public boolean equals(SuperArray other){
+		if (this.size == other.size()){
+			boolean result = true;
+			for (int i = 0; result == true && i < this.size; i++){
+				if (!(this.data[i].equals(other.get(i)))){
+					result = false;
+				}
+			}
+			return result;
+		} else return false;
+	}
 }
