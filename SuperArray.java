@@ -10,6 +10,9 @@ public class SuperArray {
 
 	//Constructor with capacity parameter
 	public SuperArray(int initialCapacity){
+		if (initialCapacity < 0){
+			throw new IllegalArgumentException("Initial capacity " + initialCapacity + " cannot be negative");
+		}
 		this.data = new String[initialCapacity];
 		this.size = 0;
 	}
@@ -175,4 +178,6 @@ public class SuperArray {
 			return result;
 		} else return false;
 	}
+
+
 }

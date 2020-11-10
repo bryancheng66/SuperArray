@@ -56,5 +56,7 @@ public class Test {
 		SA3.add("7");
 		SA3.add("4");
 		System.out.println(SA2.equals(SA3));
+
+		SuperArray SA4 = new SuperArray(-4);
 	}
 }
