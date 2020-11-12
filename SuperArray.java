@@ -36,28 +36,27 @@ public class SuperArray {
 
 	//Add with a parameter for index. Shifts all the elements starting from the index to the right if there is already an element on the index.
 	public void add(int index, String element){
-		if (index < 0){
-		
-		} else {
-			if (size + 1 > this.data.length){
-				this.resize();
-			}
-			int oldCapacity = this.data.length;
-
-			//Create a new array. Copy all the elements up to element to it, set index to element, then shift all the elements after
-			String[] newArray = new String[this.data.length];
-			for (int i = 0; i < index; i++){
-				newArray[i] = this.data[i];
-			}
-			newArray[index] = element;
-			for (int i = index; i < oldCapacity - 1; i++){
-				newArray[i+1] = this.data[i];
-			}
-
-			//Finally, set this.data to newArray
-			this.data = newArray;
-			this.size++;
+		if (index < 0 || index > size()){
+			throw new IndexOutOfBoundsException("Index " + index + " cannot be out of range");
 		}
+		if (size + 1 > this.data.length){
+			this.resize();
+		}
+		int oldCapacity = this.data.length;
+
+		//Create a new array. Copy all the elements up to element to it, set index to element, then shift all the elements after
+		String[] newArray = new String[this.data.length];
+		for (int i = 0; i < index; i++){
+			newArray[i] = this.data[i];
+		}
+		newArray[index] = element;
+		for (int i = index; i < oldCapacity - 1; i++){
+			newArray[i+1] = this.data[i];
+		}
+
+		//Finally, set this.data to newArray
+		this.data = newArray;
+		this.size++;	
 	}
 
 	//Returns the element at the given index.

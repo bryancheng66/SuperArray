@@ -6,7 +6,7 @@ public class Test {
 		SA1.add("maestro");
 		System.out.println(SA1.get(0));
 		System.out.println(SA1.get(1));
-		System.out.println(SA1.set(20, "yello"));
+		System.out.println(SA1.set(2, "yello"));
 		System.out.println(SA1.get(1));
 
 		//resize(), toString(), contains(), and isEmpty()
@@ -21,7 +21,7 @@ public class Test {
 		SA1.add("0");
 		SA1.add("1");
 		SA1.add("2");
-		SA1.add(0, "imnumberone");
+		SA1.add(-5, "imnumberone");
 
 		System.out.println(SA1.toString());
 
