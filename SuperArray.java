@@ -70,9 +70,9 @@ public class SuperArray {
 
 	//Sets the the element at the given index to a new element. Returns the original element.
 	public String set(int index, String element){
-		//If the element at this index is null, increase the size
-		if (this.data[index] == null) this.size++;
-
+		if (index < 0 || index >= size()){
+			throw new IndexOutOfBoundsException("Index " + index + " cannot be out of range");
+		}
 		String replacee = this.data[index];
 		this.data[index] = element;
 		return replacee;
