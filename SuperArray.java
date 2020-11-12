@@ -128,6 +128,10 @@ public class SuperArray {
 
 	//Removes the element at the given index. Returns the given element.
 	public String remove(int index){
+		if (index < 0 || index >= size()){
+			throw new IndexOutOfBoundsException("Index " + index + " cannot be out of range");
+		}
+
 		String result = this.data[index];
 
 		for (int i = index; i < this.size - 1; i++){
