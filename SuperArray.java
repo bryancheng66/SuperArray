@@ -62,6 +62,9 @@ public class SuperArray {
 
 	//Returns the element at the given index.
 	public String get(int index){
+		if (index < 0 || index >= this.size()){
+			throw new IndexOutOfBoundsException("Index " + index + " cannot be out of range");
+		}
 		return this.data[index];
 	}
 
