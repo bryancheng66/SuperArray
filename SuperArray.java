@@ -39,10 +39,9 @@ public class SuperArray {
 		if (index < 0 || index > size()){
 			throw new IndexOutOfBoundsException("Index " + index + " cannot be out of range");
 		}
-		if (size + 1 > this.data.length){
+		if (size == this.data.length){
 			this.resize();
 		}
-		int oldCapacity = this.data.length;
 
 		//Create a new array. Copy all the elements up to element to it, set index to element, then shift all the elements after
 		String[] newArray = new String[this.data.length];
@@ -50,7 +49,7 @@ public class SuperArray {
 			newArray[i] = this.data[i];
 		}
 		newArray[index] = element;
-		for (int i = index; i < oldCapacity - 1; i++){
+		for (int i = index; i < this.data.length - 1; i++){
 			newArray[i+1] = this.data[i];
 		}
 
@@ -79,7 +78,7 @@ public class SuperArray {
 
 	//Resize the array by a factor of 2.
 	public void resize(){
-		String[] newArray = new String[this.data.length * 2];
+		String[] newArray = new String[this.data.length + 1];
 		for (int i = 0; i < this.data.length; i++){
 			newArray[i] = this.data[i];
 		}
@@ -128,16 +127,17 @@ public class SuperArray {
 
 	//Removes the element at the given index. Returns the given element.
 	public String remove(int index){
-		if (index < 0 || index >= size()){
+		if (index < 0 || index >= this.size()){
 			throw new IndexOutOfBoundsException("Index " + index + " cannot be out of range");
 		}
 
 		String result = this.data[index];
 
-		for (int i = index; i < this.size - 1; i++){
+		for (int i = index; i < this.size() - 1; i++){
 			this.data[i] = this.data[i+1];
 		}
-		this.data[this.size - 1] = null;
+		this.data[this.size() - 1] = null;
+		this.size --;
 		return result;
 	}
 
